@@ -15,4 +15,5 @@ public class AppConfig {
   public OrderService orderService() {
     return new OrderServiceImpl(new FixDiscountPolicy(), new MemoryMemberRepository());
   }
+
 }
