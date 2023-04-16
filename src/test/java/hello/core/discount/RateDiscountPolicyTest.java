@@ -1,6 +1,8 @@
 package hello.core.discount;
 
 
+import static org.assertj.core.api.Assertions.*;
+
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.order.OrderService;
@@ -22,8 +24,8 @@ public class RateDiscountPolicyTest {
         int discount = discountPolicy.discount(memberVIP, 10000);
         int discount2 = discountPolicy.discount(memberVIP, 15000);
         // then
-        Assertions.assertThat(1000).isEqualTo(discount);
-        Assertions.assertThat(1500).isEqualTo(discount2);
+        assertThat(1000).isEqualTo(discount);
+        assertThat(1500).isEqualTo(discount2);
     }
     @Test
     @DisplayName("VIP가 아니면 할인이 적용되지 말아야 한다.")
@@ -33,6 +35,6 @@ public class RateDiscountPolicyTest {
         // when
         int discount = discountPolicy.discount(memberBasic, 10000);
         // then
-        Assertions.assertThat(0).isEqualTo(discount);
+        assertThat(0).isEqualTo(discount);
     }
 }
